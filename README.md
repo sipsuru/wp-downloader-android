@@ -59,30 +59,27 @@
   - ### PKG Update
     After `Boostrap Packages` are installed, in the CLI, execute following command. This command checks the package repositories for any updates to the Termux package lists. 
     ```bash
-    pkg update
+    pkg update -y
     ```
     Then wait...
     
   - ### PKG UPGRADE 
     After previous action completed, execute following command. This will upgrade already installed packages to the latest versions, which's recommended.
     ```bash
-    pkg upgrade
+    pkg upgrade -y
     ```
-    It'll ask if should continue, give `y` and press Enter, to continue when asked. 
 
   - ### Install Git
     We need to install `git` to clone `WP-Downloader` repo. So execute following comand to install `git`
     ```bash
-    pkg install git
+    pkg install -y git
     ```
-    It'll ask if should continue, give `y` and press Enter, to continue when asked.
 
   - ### Install NodeJS
     We need to have `NodeJS` installed to run `WP-Downloader`. So execute the following command to install latest `NodeJS`.
     ```bash
-    pkg install nodejs
+    pkg install -y nodejs
     ```
-    It'll ask if should continue, give `y` and press Enter, to continue when asked.
 
   - ### Clone Repository
     Now we need to clone `WP-Downloader` repository with `git`. To do that execute following command.
@@ -112,7 +109,6 @@
   ```bash
   npm install pm2 -g
   ```
-  It'll ask if should continue, give `y` and press Enter, to continue when asked.
 
 - ### Run WP-Downloader
   Now the final step to run WP-Downloader. We can run it with `pm2`. So execute the following command.
@@ -124,11 +120,11 @@
 > [!CAUTION]
 > Note that **there is a space** between `--` and `run`. So it's `-- run`. <br/>But it **is** `--name` and **is without spaces** between `--` and `name`<br/>
 
-- ### Save PM2
+<!--- ### Save PM2
   It's beneficial if it can restart the `WP-Downloader` app when Termux is restarted, or when System is restarted. So let's save pm2 configuration so we can manage it more easily.
   ```bash
   pm2 save
-  ```
+  ```-->
 
 - ### Use WP-Downloader
   Now that WP-Downloader is succesfully deploted to localhost, we can access it via web browser. Go to following location, by entering it to addressbar of any Browser. Be sure to use addressbar, and without any other text in addressbar other than the location bellow.
