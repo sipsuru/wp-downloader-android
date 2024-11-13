@@ -42,6 +42,23 @@
 
 <br/>
 
+# SECTIONS
+ - [Install, Configure & Run for First Time]()
+ - [Run (If saved pm2 config)]()
+ - [Run (If didn't save pm2 config)]()
+ - [Stop & Restart]()
+
+<br/>
+
+---
+
+<br/>
+
+> [!TIP]
+> For begginers: In Termux, in order to execute commands, you need to slide the command bar in bottom (with buttons including `ESC`, `HOME`, `END`, `PGUP`, `CTRL`, `ALT`), to right, so you can get a TextInput. You'll type the command and press `Enter`. So the command is displayed (not yet executed) in Termux CLI. And to execute you have to press `Enter` button again.
+
+<br/>
+
 ## 🟢 Steps to Install, Configure & Run for **FIRST TIME**
 
 > [WARNING]
@@ -68,6 +85,8 @@
     ```bash
     pkg upgrade -y
     ```
+> [!NOTE]
+> If you're being asked for `Yes/No` or etc in this terminal. Give `y`, and press Enter.
 
   - ### Install Git
     We need to install `git` to clone `WP-Downloader` repo. So execute following comand to install `git`
@@ -113,18 +132,18 @@
 - ### Run WP-Downloader
   Now the final step to run WP-Downloader. We can run it with `pm2`. So execute the following command.
   ```bash
-  pm2 start npm --name "wpdl" -- run start
+  pm2 start npm --name wpdl -- run start
   ```
   And, this will deploy `WP-Downloader` to localhost. And the name for `pm2` is `wpdl` in this case.
 
 > [!CAUTION]
 > Note that **there is a space** between `--` and `run`. So it's `-- run`. <br/>But it **is** `--name` and **is without spaces** between `--` and `name`<br/>
 
-<!--- ### Save PM2
-  It's beneficial if it can restart the `WP-Downloader` app when Termux is restarted, or when System is restarted. So let's save pm2 configuration so we can manage it more easily.
+- ### Save PM2
+  It's beneficial if it can restart the `WP-Downloader` app when Termux is restarted, or when System is restarted, by just executing `pm2 start wpdl`. So let's save pm2 configuration so we can manage it more easily.
   ```bash
   pm2 save
-  ```-->
+  ```
 
 - ### Use WP-Downloader
   Now that WP-Downloader is succesfully deploted to localhost, we can access it via web browser. Go to following location, by entering it to addressbar of any Browser. Be sure to use addressbar, and without any other text in addressbar other than the location bellow.
@@ -143,12 +162,36 @@ https://github.com/user-attachments/assets/58603d72-0456-4aa1-b136-a7cb0263b1d9
 
 ---
 
+## 🟢 Run WP-Downloader - **IF YOU HAVE SAVED PM2 CONFIG AFTER FIRST CONFIGURING IT**
+  If you have installed and configured `WP-Downloader` as guided above, but the app is not running in `localhost` you need to start it with pm2 in Termux. In this section, we assume that you **have saved pm2 config** with [THIS STEP](). Or if you've saved it, you need to follow [THIS SECTION]()
+
+- ###  Open Termux 
+  Open Termux, just like a normal app
+
+- ### Run WP-Downloader
+  Because you've saved pm2 config, you don't need to change dir. What we have to do is just run the app. So execute the following command. (We **DON"T NEED TO BE INSIDE** `wp-downloader` directory)
+  ```bash
+  pm2 start wpdl
+  ```
+  This shorter command get the saved config and run it.
+  
+- ### Use WP-Downloader
+  Now that WP-Downloader is succesfully deploted to localhost again, we can access it via web browser. Go to following location, by entering it to addressbar of any Browser. Be sure to use addressbar, and without any other text in addressbar other than the location bellow.
+  ```
+  localhost:3000
+  ```
+  The app is deployed to localhost and the port is `3000` that's why we use this location. And, now you should see WP-Downloader app loaded in your Web Browser, in the address of `localhost:3000`
+
 <br/>
 
-## 🟢 Run WP-Downloader - **NOT For First Use**
-  If you have installed and configured `WP-Downloader` as guided above, but the app is not running in `localhost` you need to start it with pm2 in Termux
+---
 
-- ###  Open Termux
+<br/>
+
+## 🟢 Run WP-Downloader - **IF YOU HAVE NOT SAVED PM2 CONFIG**
+  If you have installed and configured `WP-Downloader` as guided above, but the app is not running in `localhost` you need to start it with pm2 in Termux. In this section, we assume that you've not saved pm2 config with [THIS STEP](). Or if you've saved it, you need to follow [THIS SECTION]()
+
+- ###  Open Termux 
   Open Termux, just like a normal app
 
 - ### Change Directory
@@ -158,9 +201,9 @@ https://github.com/user-attachments/assets/58603d72-0456-4aa1-b136-a7cb0263b1d9
   ```
 
 - ### Run WP-Downloader
-  As we've configured ealier, what we have to do is just run the app. So execute the following command. (We're not inside `wp-downloader` directory)
+  As we've configured ealier, what we have to do is just run the app. So execute the following command. (We **ARE INSIDE** `wp-downloader` directory)
   ```bash
-  pm2 start npm --name "wpdl" -- run start 
+  pm2 start npm --name wpdl -- run start 
   ```
   
 - ### Use WP-Downloader
@@ -181,15 +224,16 @@ https://github.com/user-attachments/assets/58603d72-0456-4aa1-b136-a7cb0263b1d9
 - ### Stop WP-Downloader
   You may want to stop WP-Downloader, [You can start again with just a singal command (guided above)]. In that case you can execute the following command. </br>Note that we don't want to change the directory to restart or stop an app.
   ```bash
-  pm2 stop "wpdl"
+  pm2 stop wpdl
   ```
-  Note that "wpdl" is the same app name that we used when running it. Note that we can use any name for it but have to use the same one until we stop and start the app again. For ease of use, just use the predefined value "wpdl". You don't need to change anything.
-  And the service will be stopped.
+  Note that `wpdl` is the same app name that we used when running it. Note that we can use any name for it but have to use the same one. And there should not be spaces in name. If you must, you can add name in double quotations (ex: `pm2 stop "wpdl server"` for the name of "wpdl server"). For ease of use, just use the predefined value `wpdl`. You don't need to change anything.
+  And the service will be stopped. 
 
 - ### Restart WP-Downloader
   In any case, if you want to restart the WP-Downloader, you can execute the following command. </br>Note that we don't want to change the directory to restart or stop an app.
   ```bash
-  pm2 restart "wpdl"
+  pm2 restart wpdl
   ```
+  Note that `wpdl` is the same app name that we used when running it. Note that we can use any name for it but have to use the same one. And there should not be spaces in name. If you must, you can add name in double quotations (ex: `pm2 stop "wpdl server"` for the name of "wpdl server"). For ease of use, just use the predefined value `wpdl`. You don't need to change anything.
   And it'll restart the app.
 
