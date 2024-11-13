@@ -43,10 +43,10 @@
 <br/>
 
 # SECTIONS
- - [Install, Configure & Run for First Time]()
- - [Run (If saved pm2 config)]()
- - [Run (If didn't save pm2 config)]()
- - [Stop & Restart]()
+ - [Install, Configure & Run for First Time](#-steps-to-install-configure--run-for-first-time)
+ - [Run (If saved pm2 config)](#-run-wp-downloader---if-you-have-saved-pm2-config-after-first-configuring-it)
+ - [Run (If didn't save pm2 config)](#-run-wp-downloader---if-you-have-not-saved-pm2-config)
+ - [Stop & Restart](#-stop--restart-wp-downloader---not-for-first-use)
 
 <br/>
 
@@ -144,6 +144,8 @@
   ```bash
   pm2 save
   ```
+> [!NOTE]
+> Saving PM2 config is not essential, but is reccomended. Becaus you can run the app again with a shorter command, and no need to change directories. For ease, just execute above command and save pm2 config too.
 
 - ### Use WP-Downloader
   Now that WP-Downloader is succesfully deploted to localhost, we can access it via web browser. Go to following location, by entering it to addressbar of any Browser. Be sure to use addressbar, and without any other text in addressbar other than the location bellow.
@@ -163,7 +165,7 @@ https://github.com/user-attachments/assets/58603d72-0456-4aa1-b136-a7cb0263b1d9
 ---
 
 ## 🟢 Run WP-Downloader - **IF YOU HAVE SAVED PM2 CONFIG AFTER FIRST CONFIGURING IT**
-  If you have installed and configured `WP-Downloader` as guided above, but the app is not running in `localhost` you need to start it with pm2 in Termux. In this section, we assume that you **have saved pm2 config** with [THIS STEP](). Or if you've saved it, you need to follow [THIS SECTION]()
+  If you have installed and configured `WP-Downloader` as guided above, but the app is not running in `localhost` you need to start it with pm2 in Termux. In this section, we assume that you **have saved pm2 config** with [THIS STEP](). Or if you've saved it, you need to follow [THIS SECTION](#-run-wp-downloader---if-you-have-not-saved-pm2-config)
 
 - ###  Open Termux 
   Open Termux, just like a normal app
@@ -189,7 +191,7 @@ https://github.com/user-attachments/assets/58603d72-0456-4aa1-b136-a7cb0263b1d9
 <br/>
 
 ## 🟢 Run WP-Downloader - **IF YOU HAVE NOT SAVED PM2 CONFIG**
-  If you have installed and configured `WP-Downloader` as guided above, but the app is not running in `localhost` you need to start it with pm2 in Termux. In this section, we assume that you've not saved pm2 config with [THIS STEP](). Or if you've saved it, you need to follow [THIS SECTION]()
+  If you have installed and configured `WP-Downloader` as guided above, but the app is not running in `localhost` you need to start it with pm2 in Termux. In this section, we assume that you've not saved pm2 config with [THIS STEP](). Or if you've saved it, you need to follow [THIS SECTION](#-run-wp-downloader---if-you-have-saved-pm2-config-after-first-configuring-it)
 
 - ###  Open Termux 
   Open Termux, just like a normal app
